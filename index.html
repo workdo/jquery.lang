@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Lang</title>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.lang.js"></script>
+    <script type="text/javascript">
+        var lang = new Lang();
+        lang.dynamic('cn', 'js/cn.json');
+        lang.dynamic('en', 'js/en.json');
+        lang.init({
+            currentLang: 'cn'
+        });
+
+        $(function () {
+
+            $("#cn").click(function () {
+                lang.change("cn");
+            });
+
+            $("#en").click(function () {
+                lang.change("en");
+            });
+
+            $("#add").click(function () {
+                $('#div11').after('<button lang="en">Button</button>');
+//                $('#div11').after(function () {
+//                    return '<button lang="en">Button</button>';
+//                });
+
+                //$('<button lang="en">Button</button>').appendTo('#div11');
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+<div>
+    <button id = "cn">CN</button>
+    <button id = "en">EN</button>
+    <button id = "add">Add Button</button>
+
+    <label lang="en" title="TITLE01">TEXT</label>
+    <input type="text">
+    <input type="button" lang="en" value="INPUT">
+    <button lang="en">Button</button>
+
+    <div id = 'div11'>
+
+        <p>Demo</p>
+
+    </div>
+
+    <div lang="en">
+        TEXT
+    </div>
+</div>
+
+</body>
+</html>
